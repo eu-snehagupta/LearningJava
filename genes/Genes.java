@@ -49,24 +49,32 @@ public class Genes {
         return dna.substring(startIndex,minIndex+3);
     }
     
-    public int printAllGenes(String dna){
+    public StorageResource getAllGenes(String dna){
+        StorageResource genList = new StorageResource();
         int startIndex = 0;
-        int count = 0;
+        //int count = 0;
         while(true) {
             String currentGene = findGene(dna, startIndex);
             if (currentGene.isEmpty()){
                 break;
             }
-            System.out.println(currentGene);
-            count++;
+            //System.out.println(currentGene);
+            genList.add(currentGene);
+            //count++;
             startIndex = dna.indexOf(currentGene, startIndex) + currentGene.length();
         }
-        return count;
+        //return count;
+        return genList;
     }
     
     public void testOn(String dna){
         System.out.println("Our dna string: " + dna);
-        System.out.println("Our dna count: " +printAllGenes(dna));
+        //System.out.println("Our dna count: " +printAllGenes(dna));
+        StorageResource genes = getAllGenes(dna);
+        for( String g: genes.data()){
+            System.out.println("Our dnagenes: " +g);
+        }
+        System.out.println("Our gene count: " +genes.size());
     }
     
     public void test(){

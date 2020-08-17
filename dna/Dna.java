@@ -21,9 +21,18 @@ public class Dna {
         return count;  
     }
     
-    public void testHowMany(){
+    public double cgRatio(String dna){
+        return (double)((double)dna.length()/(howMany("C",dna)+howMany("G",dna)));
+    }
+    
+    
+    
+    public void test(){
         System.out.println(howMany("GAA","ATGAACGAATTGAATC"));
         System.out.println(howMany("AA","ATAAAA"));
+        System.out.println(cgRatio("ATGCCATAG"));
+        System.out.println(howMany("CTG","ATGCCATAG"));
+        System.out.println(howMany("CTG","ATGCTGCTGATAGCATG"));
     }
 }
 
